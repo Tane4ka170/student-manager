@@ -1,0 +1,21 @@
+{
+  "users": [
+    {
+      "email": "john.doe@example.com",
+      "password": "$2a$10$kzPyjYrm0tIy8rwMK2ydOOjKgkW8CKVPF4jaICD5cCEM.eWT60o5q",
+      "firstName": "John",
+      "lastName": "Doe",
+      "id": 1
+    }
+  ],
+  "students": [
+    {
+      "userId": "1",
+      "firstName": "Emily",
+      "lastName": "Smith",
+      "email": "emily.smith@example.com",
+      "refference": "STU2024",
+      "id": 1
+    }
+  ]
+}
