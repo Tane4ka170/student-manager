@@ -1,12 +1,21 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { persistStore } from "redux-persist";
-import { persistReducer } from "redux-persist";
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 const authPersistConfig = {
   key: "auth",
   storage,
-  whiteList: ["accessToken", "user"],
+  whitelist: ["accessToken", "user"],
+  // add this two props to local storage
 };
 
 const rootReducer = combineReducers({
@@ -16,6 +25,16 @@ const rootReducer = combineReducers({
 
 const store = configureStore({
   reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 
-const persistor = persistStore(storage);
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
+const persistor = persistStore(store);
+export { store, persistor };
