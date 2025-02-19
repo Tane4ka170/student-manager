@@ -1,1 +1,1 @@
-export type TLoading = "idle";
+export type TLoading = "idle" | "pending" | "succeed" | "failed";
