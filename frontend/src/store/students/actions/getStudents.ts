@@ -1,4 +1,6 @@
 import BaseURL from "@/apis/BaseURL";
+import { RootState } from "@/store";
+import { TStudent } from "@/types";
 import { axiosErrorHandler } from "@/utils";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
