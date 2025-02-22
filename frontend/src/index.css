@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f2f6d0;
+  font-family: "Alexandria", serif;
+  color: #443627;
+}
+
+/* Palette */
+/* #F2F6D0
+#EFDCAB
+#D98324
+#443627 */
