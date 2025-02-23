@@ -1,6 +1,7 @@
+import { authLogout } from "@/store/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { Nav, NavDropdown } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
@@ -22,7 +23,26 @@ const Navbar = () => {
       ) : (
         <NavDropdown
           title={`Welcome ${user?.firstName} ${user?.lastName}`}
-        ></NavDropdown>
+          id="nav-dropdown"
+        >
+          <NavDropdown.Item eventKey={1} as={Link} to={"/students"}>
+            Get Students
+          </NavDropdown.Item>
+          <NavDropdown.Item eventKey={2} as={Link} to={"/students/add"}>
+            Add Student
+          </NavDropdown.Item>
+          <NavDropdown.Item
+            eventKey={3}
+            as={Link}
+            to={"/"}
+            onClick={() => {
+              dispatch(authLogout());
+            }}
+          >
+            Logout
+          </NavDropdown.Item>
+          <NavDropdown.Divider />
+        </NavDropdown>
       )}
     </Nav>
   );
