@@ -12,7 +12,11 @@ const Header = () => {
       bg="dark"
     >
       <Container>
-        <MainHeader.Brand as={NavLink} to={"/"}>
+        <MainHeader.Brand
+          as={NavLink}
+          to={"/"}
+          className="d-flex align-items-center gap-2"
+        >
           <Logo width={"45px"} height={"45px"} />
           <h1 className="fs-5 mb-0">Students Manager</h1>
         </MainHeader.Brand>
