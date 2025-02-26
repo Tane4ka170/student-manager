@@ -8,7 +8,7 @@ import {
 } from "@/validations/registerSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
-import { Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Row, Spinner } from "react-bootstrap";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Navigate, useNavigate } from "react-router-dom";
 
@@ -51,7 +51,44 @@ const Register = () => {
           <Col md={{ span: 6, offset: 3 }}>
             <Heading title="Sign Up Teacher" />
             <Form noValidate onSubmit={handleSubmit(onSubmitHandler)}>
-              <Input />
+              <Input<TRegisterFormInputs>
+                label="First Name"
+                register={register}
+                name="firstName"
+                error={errors.firstName?.message || ""}
+              />
+              <Input<TRegisterFormInputs>
+                label="Last Name"
+                register={register}
+                name="lastName"
+                error={errors.lastName?.message || ""}
+              />
+              <Input<TRegisterFormInputs>
+                type="email"
+                label="Email Address"
+                register={register}
+                name="email"
+                error={errors.email?.message || ""}
+              />
+              <Input<TRegisterFormInputs>
+                type="password"
+                label="Password"
+                register={register}
+                name="password"
+                error={errors.password?.message || ""}
+              />
+              <Input<TRegisterFormInputs>
+                type="password"
+                label="Confirm Password"
+                register={register}
+                name="confirmPassword"
+                error={errors.confirmPassword?.message || ""}
+              />
+
+              <Button variant="primary" type="submit">
+                {loading === "pending" ? (<>
+                <Spinner animation="border" size="sm">Loading...</Spinner></>) : ()}
+              </Button>
             </Form>
           </Col>
         </Row>
