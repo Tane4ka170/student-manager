@@ -1,3 +1,5 @@
+import { Input } from "@/components/forms";
+import { Heading } from "@/components/shared";
 import { authRegister, cleanUI } from "@/store/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import {
@@ -47,7 +49,10 @@ const Register = () => {
       <Container>
         <Row>
           <Col md={{ span: 6, offset: 3 }}>
-            <Form noValidate onSubmit={handleSubmit(onSubmitHandler)}></Form>
+            <Heading title="Sign Up Teacher" />
+            <Form noValidate onSubmit={handleSubmit(onSubmitHandler)}>
+              <Input />
+            </Form>
           </Col>
         </Row>
       </Container>
