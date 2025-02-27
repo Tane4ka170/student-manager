@@ -14,9 +14,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const dispatch = useAppDispatch();
-  const { loading, error, accessToken } = useAppSelector(
-    (state) => state.students
-  );
+  const { loading, error, accessToken } = useAppSelector((state) => state.auth);
   const navigate = useNavigate();
   const {
     register,
@@ -86,9 +84,18 @@ const Register = () => {
               />
 
               <Button variant="primary" type="submit">
-                {loading === "pending" ? (<>
-                <Spinner animation="border" size="sm">Loading...</Spinner></>) : ()}
+                {loading === "pending" ? (
+                  <>
+                    <Spinner animation="grow" size="sm" className="me-2" />
+                    Loading...
+                  </>
+                ) : (
+                  "Register"
+                )}
               </Button>
+              {error && (
+                <p style={{ marginTop: "10px", color: "#913210" }}>{error}</p>
+              )}
             </Form>
           </Col>
         </Row>
