@@ -34,13 +34,19 @@ const GetStudents = () => {
       <Container>
         <Heading title="Students List" />
         {message && message === "added" && (
-          <Alert variant="success">Student Successfully Added</Alert>
+          <Alert variant="success" show={show}>
+            Student Successfully Added
+          </Alert>
         )}
         {message && message === "edited" && (
-          <Alert variant="success">Student Successfully Updated</Alert>
+          <Alert variant="success" show={show}>
+            Student Successfully Updated
+          </Alert>
         )}
         {message && message === "already_exist" && (
-          <Alert variant="danger">This student is already in the system!</Alert>
+          <Alert variant="danger" show={show}>
+            This student is already in the system!
+          </Alert>
         )}
         {records.length ? <StudentsList students={records} /> : <p></p>}
       </Container>
