@@ -1,3 +1,4 @@
+import { ProtectedRoute } from "@/components/auth";
 import App from "@/layouts/App";
 import {
   AddStudent,
@@ -28,15 +29,27 @@ const route = createBrowserRouter([
       },
       {
         path: "/students",
-        element: <GetStudents />,
+        element: (
+          <ProtectedRoute>
+            <GetStudents />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/students/add",
-        element: <AddStudent />,
+        element: (
+          <ProtectedRoute>
+            <AddStudent />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/students/edit/:id",
-        element: <UpdateStudent />,
+        element: (
+          <ProtectedRoute>
+            <UpdateStudent />
+          </ProtectedRoute>
+        ),
         loader: ({ params }) => {
           if (!/^[0-9]$/i.test(params.id!)) {
             throw new Response("Bad Request", {
