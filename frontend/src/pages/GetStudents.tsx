@@ -1,5 +1,5 @@
 import { Heading } from "@/components/shared";
-import StudentsList from "@/components/studentsManager/StudentsList/StudentsList";
+import { StudentsList } from "@/components/studentsManager";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { getStudents, studentsCleanUP } from "@/store/students/studentsSlice";
 import { useEffect, useState } from "react";
